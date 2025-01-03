@@ -34,6 +34,7 @@ label =ttk.Label(frame, text= "ID Number",font=('Arial',10,'bold'))
 label.place(x=0,y=80)
 label =ttk.Label(frame, text= "Student Violation:",font=('Arial',10,'bold'))
 label.place(x=0,y=120)
+#comment
 
 #Gender with list
 

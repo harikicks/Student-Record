@@ -12,7 +12,15 @@ def button_func():
     E3.get(),
     E4.get()
     ))
-    
+
+#remove 
+def remove_multiple():
+    y = table.selection()
+    for item in y:
+        table.delete(item)
+
+
+
 
 # window
 window = tk.Tk()
@@ -57,8 +65,13 @@ E3.place(x=150,y=80)
 E4 = ttk.Entry(frame)
 E4.place(x=150,y=120)
 
+#Add button
 button = ttk.Button(frame, text= 'Add', command = button_func)
 button.place(x=100,y=200)
+
+#delete button
+button = ttk.Button(frame, text= 'Remove', command = remove_multiple) 
+button.place(x=100,y=225)
 
 #frame 2 table
 frame2 = ttk.Frame(window, width= 820, height= 300, borderwidth= 10, relief= tk.GROOVE)

@@ -32,6 +32,9 @@ frame = ttk.Frame(window, width= 300, height= 500, borderwidth= 10, relief= tk.G
 frame.pack_propagate(False)
 frame.place(x=20,y=50)
 
+#search menu
+
+
 #label for the frame/master
 
 label =ttk.Label(frame, text= "Student Name:",font=('Arial',10,'bold'))
@@ -86,7 +89,32 @@ table.heading('third', text = 'ID Number')
 table.heading('fourth', text = 'Violation')
 table.pack()
 
-table.insert(parent = '', index = 0, values = ('Africano, Luigi V','BET-CPET-1B','TUPM-23-2355','N/A'))
+studentname=[{"name":"Africano, Luigi V","section":"BET-CPET-1B","ID":"TUPM-23-2355","vi":"N/A"},
+{"name":"Armendi, Francis M","section":"BET-CPET-1B","ID":"TUPM-23-2355","vi":"N/A"},
+{"name":"De Guzman, Jose Miguel T.","section":"BET-CPET-1B","ID":"TUPM-23-3453","vi":"N/A"},
+{"name":"Dela Cruz, Kean Jarrelle P.","section":"BET-CPET-1B","ID":"TUPM-23-3344","vi":"N/A"},
+{"name":"Dizon, Christian Edward R..","section":"BET-CPET-1B","ID":"TUPM-23-5676","vi":"N/A"},
+{"name":"Esguerra, Earl Cedric C.","section":"BET-CPET-1B","ID":"TUPM-23-8970","vi":"N/A"},
+{"name":"Espineda, Racel F.","section":"BET-CPET-1B","ID":"TUPM-23-4854","vi":"N/A"},
+{"name":"Espino, Lance Andrie B.","section":"BET-CPET-1B","ID":"TUPM-23-3423","vi":"N/A"},
+{"name":"Gadin, Rogene Lyle C","section":"BET-CPET-1B","ID":"TUPM-23-1211","vi":"N/A"},
+{"name":"Gullon, Rodrigo L.","section":"BET-CPET-1B","ID":"TUPM-23-2211","vi":"N/A"},
+{"name":"Iniquillo, Marc Oliver C.","section":"BET-CPET-1B","ID":"TUPM-23-1122","vi":"N/A"},
+{"name":"Jaducana, Jelo Arviel C.","section":"BET-CPET-1B","ID":"TUPM-23-3321","vi":"N/A"},
+{"name":"Lacdao, Justin Zeus V.","section":"BET-CPET-1B","ID":"TUPM-23-1132","vi":"N/A"},
+{"name":"Lorenzo, Jamielyza P.","section":"BET-CPET-1B","ID":"TUPM-23-2313","vi":"N/A"},
+{"name":"Mendiola, Jofryl Drew L.","section":"BET-CPET-1B","ID":"TUPM-23-8899","vi":"N/A"},
+{"name":"Reyes, Christian Jericho R.","section":"BET-CPET-1B","ID":"TUPM-23-0167","vi":"N/A"},
+{"name":"Rivera, Lezlie R. ","section":"BET-CPET-1B","ID":"TUPM-23-0101","vi":"N/A"},
+{"name":"Sebastian, John Edanwil S.","section":"BET-CPET-1B","ID":"TUPM-23-0123","vi":"N/A"},
+{"name":"Sevilla, Aeron John A.","section":"BET-CPET-1B","ID":"UPM-23-0124","vi":"N/A"},
+{"name":"abudlo, Charlotte D.","section":"BET-CPET-1B","ID":"TUPM-23-0125","vi":"N/A"},
+{"name":"Tanuyan, Karl Raphael E.","section":"BET-CPET-1B","ID":"TUPM-23-0643","vi":"N/A"},
+{"name":"Villapaña, Pocholo V.","section":"BET-CPET-1B","ID":"TUPM-23-0342","vi":"N/A"},
+]
+
+
+table.insert(parent = '', index = 0, values = (studentname[0]['name'],studentname[0]['section'],studentname[0]['ID'],studentname[0]['vi']))
 table.insert(parent = '', index = 0, values = ('Armendi, Francis M','BET-CPET-1B','TUPM-23-3344','N/A'))
 table.insert(parent = '', index = 0, values = ('Cuerda, Bea Bianca B. ','BET-CPET-1B','TUPM-23-3453','N/A'))
 table.insert(parent = '', index = 0, values = ('De Guzman, Jose Miguel T.','BET-CPET-1B','TUPM-23-3454','N/A'))

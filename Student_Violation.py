@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
+from operator import itemgetter
+from tkinter import messagebox
 
 def button_func():
     print(E1.get())
@@ -25,6 +27,20 @@ def remove_multiple():
     y = table.selection()
     for item in y:
         table.delete(item)
+
+#Sort
+
+def Sort():
+    # Clear the existing table data
+    for item in table.get_children():
+        table.delete(item)
+
+    # Sort the studentData list in-place by the 'name' key
+    Sorted = sorted(studentData, key=itemgetter('name'))
+
+    # Repopulate the table with the sorted data and remove the unsorted data
+    setTableData(table, Sorted)
+    table.delete(studentData)
 
 #Search
 def search(id):
@@ -64,7 +80,7 @@ def reset_func():
 # window
 window = tk.Tk()
 window.geometry("1320x620")
-window.title('Office of Student Affair Violation Record')
+window.title('Student Violation Record')
 
 #frame
 frame = ttk.Frame(window, width= 300, height= 500, borderwidth= 10, relief= tk.GROOVE)
@@ -84,8 +100,10 @@ label =ttk.Label(frame, text= "ID Number",font=('Arial',10,'bold'))
 label.place(x=0,y=80)
 label =ttk.Label(frame, text= "Student Violation:",font=('Arial',10,'bold'))
 label.place(x=0,y=120)
-
-
+label =ttk.Label(frame, text= "Community Service:",font=('Arial',10,'bold'))
+label.place(x=0,y=400)
+label =ttk.Label(frame, text= "(A,B,C,D)",font=('Arial',10,'bold'))
+label.place(x=30,y=420)
 
 
 
@@ -101,23 +119,72 @@ E4 = ttk.Entry(frame)
 E4.place(x=150,y=120)
 E5 = ttk.Entry(frame)
 E5.place(x=150,y=275)
+E6 = ttk.Entry(frame)
+E6.place(x=150,y=400)
 
+def Assign():
+    val = E6.get()
+    queue =[]
+
+    queue.append("Library Works")
+    queue.append("Cleaning toilets")
+    queue.append("Cleaning The campus")
+    queue.append("Cleaning the OSA")
+    if val == "A":
+        queue.pop(3)
+        queue.pop(2)
+        queue.pop(1)
+        messagebox.showinfo(title="TO DO",message="Library Works")
+        print (queue)
+
+    elif val == "B":
+        queue.pop(3)
+        queue.pop(2)
+        queue.pop(0)
+        messagebox.showinfo(title="TO DO",message="Cleaning Toilets")
+        print (queue)
+
+    elif val == "C":
+        queue.pop(3)
+        queue.pop(1)
+        queue.pop(0)
+        messagebox.showinfo(title="TO DO",message="Cleaning the Campus")
+        print (queue)
+    
+    elif val == "D":
+        queue.pop(2)
+        queue.pop(1)
+        queue.pop(0)
+        messagebox.showinfo(title="TO DO",message="Cleaning the OSA")
+        print (queue) 
 #Add button
 button = ttk.Button(frame, text= 'Add', command = button_func)
-button.place(x=100,y=200)
+button.place(x= 100,y= 200)
 
 #delete button
 button = ttk.Button(frame, text= 'Remove', command = remove_multiple) 
-button.place(x=100,y=225)
+button.place(x= 100,y= 225)
 
 #Search Input Text box
 label =ttk.Label(frame, text= "Search Student ID:",font=('Arial',10,'bold'))
-label.place(x=0,y=275)
+label.place(x= 0,y= 275)
 
 # Search button
 ttk.Button(frame, text='Search', command=search_func).place(x=120, y=300)
 ttk.Button(frame, text='Reset', command=reset_func).place(x=200, y=300)
 
+#delete button
+button = ttk.Button(frame, text= 'Sort', command = Sort) 
+button.place(x= 150,y= 325)
+
+#assign button
+button = ttk.Button(frame, text= 'Assign', command = Assign)
+button.place(x= 173,y= 425) 
+
+
+
+
+  
 #frame 2 table
 frame2 = ttk.Frame(window, width= 820, height= 300, borderwidth= 10, relief= tk.GROOVE)
 frame2.pack_propagate(True)
@@ -131,29 +198,30 @@ table.heading('third', text = 'ID Number')
 table.heading('fourth', text = 'Violation')
 table.pack()
 
-studentData=[{"name":"Africano, Luigi V","section":"BET-CPET-1B","ID":"TUPM-23-2355","vi":"Improper Hair Color"},
-{"name":"Armendi, Francis M","section":"BET-CPET-1B","ID":"TUPM-23-2345","vi":"Improper Uniform"},
-{"name":"De Guzman, Jose Miguel T.","section":"BET-CPET-1B","ID":"TUPM-23-3453","vi":"Improper Hairsyle"},
-{"name":"Dela Cruz, Kean Jarrelle P.","section":"BET-CPET-1B","ID":"TUPM-23-3344","vi":"Hazing"},
-{"name":"Dizon, Christian Edward R..","section":"BET-CPET-1B","ID":"TUPM-23-5676","vi":"Gambling"},
-{"name":"Esguerra, Earl Cedric C.","section":"BET-CPET-1B","ID":"TUPM-23-8970","vi":"Smoking"},
-{"name":"Espineda, Racel F.","section":"BET-CPET-1B","ID":"TUPM-23-4854","vi":"Smoking"},
-{"name":"Espino, Lance Andrie B.","section":"BET-CPET-1B","ID":"TUPM-23-3423","vi":"Bullying"},
-{"name":"Gadin, Rogene Lyle C","section":"BET-CPET-1B","ID":"TUPM-23-1211","vi":"Cyber Bullying"},
-{"name":"Gullon, Rodrigo L.","section":"BET-CPET-1B","ID":"TUPM-23-2211","vi":"Liquor and Prohibited Drugs"},
-{"name":"Iniquillo, Marc Oliver C.","section":"BET-CPET-1B","ID":"TUPM-23-1122","vi":"Illegal Assembly"},
-{"name":"Jaducana, Jelo Arviel C.","section":"BET-CPET-1B","ID":"TUPM-23-3321","vi":"Failure to Account Funds"},
-{"name":"Lacdao, Justin Zeus V.","section":"BET-CPET-1B","ID":"TUPM-23-1132","vi":"Physical Assault"},
-{"name":"Lorenzo, Jamielyza P.","section":"BET-CPET-1B","ID":"TUPM-23-2313","vi":"Robbery"},
-{"name":"Mendiola, Jofryl Drew L.","section":"BET-CPET-1B","ID":"TUPM-23-8899","vi":"Vandalism"},
-{"name":"Reyes, Christian Jericho R.","section":"BET-CPET-1B","ID":"TUPM-23-0167","vi":"Trespassing"},
-{"name":"Rivera, Lezlie R. ","section":"BET-CPET-1B","ID":"TUPM-23-0101","vi":"Slander"},
-{"name":"Sebastian, John Edanwil S.","section":"BET-CPET-1B","ID":"TUPM-23-0123","vi":"Falsification of Documents"},
-{"name":"Sevilla, Aeron John A.","section":"BET-CPET-1B","ID":"TUPM-23-0124","vi":"Academic Dishonesty"},
-{"name":"abudlo, Charlotte D.","section":"BET-CPET-1B","ID":"TUPM-23-0125","vi":"Bribery"},
-{"name":"Tanuyan, Karl Raphael E.","section":"BET-CPET-1B","ID":"TUPM-23-0643","vi":"Swindling"},
-{"name":"Villapaña, Pocholo V.","section":"BET-CPET-1B","ID":"TUPM-23-0342","vi":"Smoking"},
+studentData=[{"name":"Africano, Luigi V","section":"BET-CPET-1B","ID":"TUPM-23-2355","vi":"N/A"},
+{"name":"Armendi, Francis M","section":"BET-CPET-1B","ID":"TUPM-23-2355","vi":"N/A"},
+{"name":"De Guzman, Jose Miguel T.","section":"BET-CPET-1B","ID":"TUPM-23-3453","vi":"N/A"},
+{"name":"Dela Cruz, Kean Jarrelle P.","section":"BET-CPET-1B","ID":"TUPM-23-3344","vi":"N/A"},
+{"name":"Dizon, Christian Edward R..","section":"BET-CPET-1B","ID":"TUPM-23-5676","vi":"N/A"},
+{"name":"Esguerra, Earl Cedric C.","section":"BET-CPET-1B","ID":"TUPM-23-8970","vi":"N/A"},
+{"name":"Espineda, Racel F.","section":"BET-CPET-1B","ID":"TUPM-23-4854","vi":"N/A"},
+{"name":"Espino, Lance Andrie B.","section":"BET-CPET-1B","ID":"TUPM-23-3423","vi":"N/A"},
+{"name":"Gadin, Rogene Lyle C","section":"BET-CPET-1B","ID":"TUPM-23-1211","vi":"N/A"},
+{"name":"Gullon, Rodrigo L.","section":"BET-CPET-1B","ID":"TUPM-23-2211","vi":"N/A"},
+{"name":"Iniquillo, Marc Oliver C.","section":"BET-CPET-1B","ID":"TUPM-23-1122","vi":"N/A"},
+{"name":"Jaducana, Jelo Arviel C.","section":"BET-CPET-1B","ID":"TUPM-23-3321","vi":"N/A"},
+{"name":"Lacdao, Justin Zeus V.","section":"BET-CPET-1B","ID":"TUPM-23-1132","vi":"N/A"},
+{"name":"Lorenzo, Jamielyza P.","section":"BET-CPET-1B","ID":"TUPM-23-2313","vi":"N/A"},
+{"name":"Mendiola, Jofryl Drew L.","section":"BET-CPET-1B","ID":"TUPM-23-8899","vi":"N/A"},
+{"name":"Reyes, Christian Jericho R.","section":"BET-CPET-1B","ID":"TUPM-23-0167","vi":"N/A"},
+{"name":"Rivera, Lezlie R. ","section":"BET-CPET-1B","ID":"TUPM-23-0101","vi":"N/A"},
+{"name":"Sebastian, John Edanwil S.","section":"BET-CPET-1B","ID":"TUPM-23-0123","vi":"N/A"},
+{"name":"Sevilla, Aeron John A.","section":"BET-CPET-1B","ID":"UPM-23-0124","vi":"N/A"},
+{"name":"Abudlo, Charlotte D.","section":"BET-CPET-1B","ID":"TUPM-23-0125","vi":"N/A"},
+{"name":"Tanuyan, Karl Raphael E.","section":"BET-CPET-1B","ID":"TUPM-23-0643","vi":"N/A"},
+{"name":"Villapaña, Pocholo V.","section":"BET-CPET-1B","ID":"TUPM-23-0342","vi":"N/A"},
 ]
+
 
 setTableData(table, studentData)
 

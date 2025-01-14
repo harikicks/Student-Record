@@ -64,7 +64,7 @@ def reset_func():
 # window
 window = tk.Tk()
 window.geometry("1320x620")
-window.title('Student Violation Record')
+window.title('Office of Student Affair Violation Record')
 
 #frame
 frame = ttk.Frame(window, width= 300, height= 500, borderwidth= 10, relief= tk.GROOVE)
@@ -86,14 +86,7 @@ label =ttk.Label(frame, text= "Student Violation:",font=('Arial',10,'bold'))
 label.place(x=0,y=120)
 
 
-#Gender with list
 
-gender = ('Male', 'Female')
-Gender_string =tk.StringVar()
-combo = ttk.Combobox(frame, textvariable= Gender_string)
-combo['values'] = gender
-combo.place(x=135,y=160)
-combo.bind('<<ComboboxSelected>>', lambda event: print(Gender_string.get()))
 
 
 
@@ -138,28 +131,28 @@ table.heading('third', text = 'ID Number')
 table.heading('fourth', text = 'Violation')
 table.pack()
 
-studentData=[{"name":"Africano, Luigi V","section":"BET-CPET-1B","ID":"TUPM-23-2355","vi":"N/A"},
-{"name":"Armendi, Francis M","section":"BET-CPET-1B","ID":"TUPM-23-2355","vi":"N/A"},
-{"name":"De Guzman, Jose Miguel T.","section":"BET-CPET-1B","ID":"TUPM-23-3453","vi":"N/A"},
-{"name":"Dela Cruz, Kean Jarrelle P.","section":"BET-CPET-1B","ID":"TUPM-23-3344","vi":"N/A"},
-{"name":"Dizon, Christian Edward R..","section":"BET-CPET-1B","ID":"TUPM-23-5676","vi":"N/A"},
-{"name":"Esguerra, Earl Cedric C.","section":"BET-CPET-1B","ID":"TUPM-23-8970","vi":"N/A"},
-{"name":"Espineda, Racel F.","section":"BET-CPET-1B","ID":"TUPM-23-4854","vi":"N/A"},
-{"name":"Espino, Lance Andrie B.","section":"BET-CPET-1B","ID":"TUPM-23-3423","vi":"N/A"},
-{"name":"Gadin, Rogene Lyle C","section":"BET-CPET-1B","ID":"TUPM-23-1211","vi":"N/A"},
-{"name":"Gullon, Rodrigo L.","section":"BET-CPET-1B","ID":"TUPM-23-2211","vi":"N/A"},
-{"name":"Iniquillo, Marc Oliver C.","section":"BET-CPET-1B","ID":"TUPM-23-1122","vi":"N/A"},
-{"name":"Jaducana, Jelo Arviel C.","section":"BET-CPET-1B","ID":"TUPM-23-3321","vi":"N/A"},
-{"name":"Lacdao, Justin Zeus V.","section":"BET-CPET-1B","ID":"TUPM-23-1132","vi":"N/A"},
-{"name":"Lorenzo, Jamielyza P.","section":"BET-CPET-1B","ID":"TUPM-23-2313","vi":"N/A"},
-{"name":"Mendiola, Jofryl Drew L.","section":"BET-CPET-1B","ID":"TUPM-23-8899","vi":"N/A"},
-{"name":"Reyes, Christian Jericho R.","section":"BET-CPET-1B","ID":"TUPM-23-0167","vi":"N/A"},
-{"name":"Rivera, Lezlie R. ","section":"BET-CPET-1B","ID":"TUPM-23-0101","vi":"N/A"},
-{"name":"Sebastian, John Edanwil S.","section":"BET-CPET-1B","ID":"TUPM-23-0123","vi":"N/A"},
-{"name":"Sevilla, Aeron John A.","section":"BET-CPET-1B","ID":"UPM-23-0124","vi":"N/A"},
-{"name":"abudlo, Charlotte D.","section":"BET-CPET-1B","ID":"TUPM-23-0125","vi":"N/A"},
-{"name":"Tanuyan, Karl Raphael E.","section":"BET-CPET-1B","ID":"TUPM-23-0643","vi":"N/A"},
-{"name":"Villapaña, Pocholo V.","section":"BET-CPET-1B","ID":"TUPM-23-0342","vi":"N/A"},
+studentData=[{"name":"Africano, Luigi V","section":"BET-CPET-1B","ID":"TUPM-23-2355","vi":"Improper Hair Color"},
+{"name":"Armendi, Francis M","section":"BET-CPET-1B","ID":"TUPM-23-2345","vi":"Improper Uniform"},
+{"name":"De Guzman, Jose Miguel T.","section":"BET-CPET-1B","ID":"TUPM-23-3453","vi":"Improper Hairsyle"},
+{"name":"Dela Cruz, Kean Jarrelle P.","section":"BET-CPET-1B","ID":"TUPM-23-3344","vi":"Hazing"},
+{"name":"Dizon, Christian Edward R..","section":"BET-CPET-1B","ID":"TUPM-23-5676","vi":"Gambling"},
+{"name":"Esguerra, Earl Cedric C.","section":"BET-CPET-1B","ID":"TUPM-23-8970","vi":"Smoking"},
+{"name":"Espineda, Racel F.","section":"BET-CPET-1B","ID":"TUPM-23-4854","vi":"Smoking"},
+{"name":"Espino, Lance Andrie B.","section":"BET-CPET-1B","ID":"TUPM-23-3423","vi":"Bullying"},
+{"name":"Gadin, Rogene Lyle C","section":"BET-CPET-1B","ID":"TUPM-23-1211","vi":"Cyber Bullying"},
+{"name":"Gullon, Rodrigo L.","section":"BET-CPET-1B","ID":"TUPM-23-2211","vi":"Liquor and Prohibited Drugs"},
+{"name":"Iniquillo, Marc Oliver C.","section":"BET-CPET-1B","ID":"TUPM-23-1122","vi":"Illegal Assembly"},
+{"name":"Jaducana, Jelo Arviel C.","section":"BET-CPET-1B","ID":"TUPM-23-3321","vi":"Failure to Account Funds"},
+{"name":"Lacdao, Justin Zeus V.","section":"BET-CPET-1B","ID":"TUPM-23-1132","vi":"Physical Assault"},
+{"name":"Lorenzo, Jamielyza P.","section":"BET-CPET-1B","ID":"TUPM-23-2313","vi":"Robbery"},
+{"name":"Mendiola, Jofryl Drew L.","section":"BET-CPET-1B","ID":"TUPM-23-8899","vi":"Vandalism"},
+{"name":"Reyes, Christian Jericho R.","section":"BET-CPET-1B","ID":"TUPM-23-0167","vi":"Trespassing"},
+{"name":"Rivera, Lezlie R. ","section":"BET-CPET-1B","ID":"TUPM-23-0101","vi":"Slander"},
+{"name":"Sebastian, John Edanwil S.","section":"BET-CPET-1B","ID":"TUPM-23-0123","vi":"Falsification of Documents"},
+{"name":"Sevilla, Aeron John A.","section":"BET-CPET-1B","ID":"TUPM-23-0124","vi":"Academic Dishonesty"},
+{"name":"abudlo, Charlotte D.","section":"BET-CPET-1B","ID":"TUPM-23-0125","vi":"Bribery"},
+{"name":"Tanuyan, Karl Raphael E.","section":"BET-CPET-1B","ID":"TUPM-23-0643","vi":"Swindling"},
+{"name":"Villapaña, Pocholo V.","section":"BET-CPET-1B","ID":"TUPM-23-0342","vi":"Smoking"},
 ]
 
 setTableData(table, studentData)

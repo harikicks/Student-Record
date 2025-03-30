@@ -21,6 +21,16 @@ div {
     
 }
 
+/*retain design*/
+#title a {
+    text-decoration: none !important; 
+    color: #1E1E1E !important;         
+    display: inline-block;             
+    cursor: pointer;                  
+}
+
+
+
 .highlight {
     color: #579737;
 }
@@ -28,7 +38,7 @@ div {
 /* Records */
 #record{
 position: absolute;
-width: 177px;
+width: 170px;
 height: 54px;
 
 font-family: 'Inter';
@@ -38,6 +48,15 @@ font-size: 45px;
 line-height: 54px;
 
 color: #1E1E1E;}
+
+/*keep color and form of header*/
+#record a {
+    text-decoration: none !important;  
+    color: #1E1E1E !important;        
+    display: inline-block;            
+    cursor: pointer;                   
+}
+
 
 /* New Entry */
 #newentry{
@@ -55,6 +74,16 @@ line-height: 54px;
 
 color: #1E1E1E;}
 
+
+/*retain design*/
+#newentry a {
+    text-decoration: none !important;  
+    color: #1E1E1E !important;        
+    display: inline-block;            
+    cursor: pointer;                   
+}
+
+
 /* Inbox */
 #inbox{
 position: absolute;
@@ -70,6 +99,14 @@ left: 410px;
 top: 10px;
 
 color: #1E1E1E;}
+
+/*retain design*/
+#inbox a {
+    text-decoration: none !important;  
+    color: #1E1E1E !important;        
+    display: inline-block;            
+    cursor: pointer;                   
+}
 
 
 

@@ -7,16 +7,32 @@
 
 <body>
     <div>
-        <header id="title"><span class="highlight">Admin</span>Menu</header>
+        <header id="title">
+            <a href="adminmenu.php">
+                <span class="highlight">Admin</span>Menu
+            </a>
+        </header>
     </div>
-    <h6 id="record">Records | </h6>
-    <h6 id="newentry"><u>New Entry </u> | </h6>
-    <h6 id="inbox">Inbox </h6>
+
+    
+<h6 id="record">
+    <a href="records.php" id="entry-link">Records | </a>            
+</h6>
+
+<h6 id="newentry">
+    <a href="entry.php" id="entry-link">New Entry |</a>
+</h6>
+
+<h6 id="inbox">
+    <a href="inbox.php" id="entry-link">Inbox </a>
+</h6>
+
+
     <h1 id="entry">Create Entry</h1>
     <h6 id="entry2">New Record</h6>
 
     <h6 id="entry3"><span>First </span><span>Name:</span></h6>
-
+    
 
     <h6 id="entry4"><span>Last </span><span>Name:</span></h6>
     
